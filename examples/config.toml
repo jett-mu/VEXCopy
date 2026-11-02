@@ -1,0 +1,42 @@
+# Reproduces refernce.pdf exactly. Copy this file and change anything you like.
+# Relative paths are relative to this file.
+
+title = "Qualification Match List"
+event_name = "PasswordForTournamentManagerIsAllLowercaseNoSpaces_skills"
+logo = "../assets/logo.png"          # use "" for no logo
+timestamp = "2026-10-31 14:34"       # footer date, or "now"
+
+[pdf]                                # document properties
+title = "Untitled"
+author = "Jett Mu"
+creator = "VEX Tournament Manager"
+
+[schedule]
+# With csv set, match rows come from that file. Remove it to generate a schedule
+# from the settings below. The CSV needs Red 1, Red 2, Blue 1 and Blue 2 columns.
+# Match, Field and Time are optional; any that are missing come from [timing].
+csv = "reference_matches.csv"
+teams = 24                           # a count, or a list like ["1234A", "5678B", ...]
+matches = 420                        # or: rounds = 70
+seed = 1                             # same seed gives the same schedule
+min_gap = 3                          # fewest matches between a team's appearances
+
+[timing]
+start = "2026-10-31 09:00"
+cycle_minutes = 1
+fields = ["Main Field"]              # several names rotate from match to match
+match_prefix = "Q"
+
+# Matches that would start during a break move to the end of it:
+# [[timing.breaks]]
+# start = "2026-10-31 12:00"
+# minutes = 60
+
+[table]
+rows_per_page = 42                   # 42 is the most that fits
+
+# Column order, labels and relative widths:
+# [[table.columns]]
+# key = "match"      # match, field, time, red1, red2, blue1, blue2, or a CSV column
+# label = "Match"
+# weight = 3
